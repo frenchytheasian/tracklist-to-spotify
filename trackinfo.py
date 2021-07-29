@@ -47,15 +47,6 @@ class TrackInfo:
             self.track_names.append(track_name)
             self.artist_names.append(artist_name)
 
-    def get_tracks(self):
-        return self.tracks
-
-    def get_track_names(self):
-        return self.track_names
-
-    def get_track_artists(self):
-        return self.artist_names
-
 def main():
     track = TrackInfo("https://www.1001tracklists.com/tracklist/9l2wdv1/two-friends-big-bootie-mix-018-2020-10-26.html")
     print(track.get_tracks())
