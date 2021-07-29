@@ -1,15 +1,36 @@
+import sys
+
 from trackinfo import TrackInfo
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+from pprint import pprint
     
 
 def main():
-    track = TrackInfo('https://www.1001tracklists.com/tracklist/9l2wdv1/two-friends-big-bootie-mix-018-2020-10-26.html')
-    print(track)
+    """
+    Create a spotify playlist from a tracklist. Use the scraped info 
+    gathered by the TrackInfo object
+
+    """
+    tracklist_url = sys.argv[1]
+
+    tracks = TrackInfo(tracklist_url).tracks
+
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
-    artist = sp.artist('spotify:artist:3jOstUTkEu2JkjvRdBA5Gu')
-    print(artist)
+
+    search = sp.search(q=tracks[0], limit=1)
+
+    #TODO: figure out how to create a playlist using the spotipy library
+    uri = search['tracks']['items'][0]['uri']
+    print(uri)
+    track = sp.track(uri)
+
+    # TODO: move the prior couple of lines into this for loop
+    # for track in tracks:
+    #     search = sp.search(q=track,limit=1)
+    #     print(search['tracks'].keys())
+
 
 if __name__ == '__main__':
     main()
