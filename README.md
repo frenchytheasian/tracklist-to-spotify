@@ -5,8 +5,7 @@ Currently under production.
 
 
 ## TODO
-- Get transfers.py working. It currently lacks the ability to take the scraped information and put it into a spotify playlist.
-- Provide extra CRUD functionality within the program
-- Add functionality to create multiple playlists from multiple different tracklists all at once.
+- Test the program
+- Provide extra CRUD functionality within the program and maybe turn it into an unoficial API
 - Update the README to contain proper directions on how to use this repository.
 - (Maybe?) Turn this into a website and build a frontend UI to carry out the creation of the playlist.
